@@ -4,6 +4,8 @@ from dataclasses import dataclass
 from types import ModuleType
 from typing import Callable, Any
 
+from python_autoloader import helpers
+
 
 @dataclass
 class PythonModule:
@@ -14,13 +16,11 @@ class PythonModule:
 
     @property
     def directory(self):
+        """Returns the directory of the module."""
         return os.path.dirname(self.module.__file__)
 
     def __str__(self):
-        return f"{self.name} - {self.directory}"
-
-    def __repr__(self):
-        return f"{self.name} - {self.directory}"
+        return f"<{self.name}>"
 
     @classmethod
     def from_module_name(
@@ -36,15 +36,15 @@ class PythonModule:
         :return: PythonModule.
         """
         module = importlib.import_module(module_name, package=package)
-        name = module.__name__
-        if name.endswith(".__init__"):
-            name = name[:-9]
+        name = helpers.remove_suffix(module.__name__, ".__init__")
         return cls(name=name, module=module)
 
     def is_valid_file(self):
+        """Returns True if the module is a valid file."""
         return bool(self.module.__file__)
 
-    def is_init_module(self):
+    def is__init__(self):
+        """Returns True if the module is __init__.py file."""
         return self.module.__file__.endswith("__init__.py")
 
 
