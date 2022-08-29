@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-import helpers
+from python_autoloader import helpers
 from python_autoloader.models import PythonModule
 
 logger = helpers.get_logger()
@@ -11,6 +11,17 @@ class ModuleLoader:
     def __init__(self):
         self.modules: List[PythonModule] = []
         self._visited_dirs: List[str] = []
+
+    @classmethod
+    def from_module_name(
+        cls, module_name: str, recursive: bool = False
+    ) -> "ModuleLoader":
+        """
+        Creates a new ModuleLoader instance from a module name.
+        """
+        self = cls()
+        self.load(module_name, recursive)
+        return self
 
     def load(self, module_name: str, recursive: bool = False) -> List[PythonModule]:
         """
