@@ -2,11 +2,11 @@ import inspect
 from types import ModuleType
 from typing import List, Any, Set
 
-from python_autoloader.loader import ModuleLoader
-from python_autoloader.models import ValidateFunction
+from python_module_loader.loader import ModuleLoader
+from python_module_loader.models import ValidateFunction
 
 
-class PythonAutoLoader:
+class PythonModuleLoader:
     """Loads a module and all python modules in same directory as the module."""
 
     def __init__(self):
@@ -24,13 +24,13 @@ class PythonAutoLoader:
             obj for module in self.modules for name, obj in inspect.getmembers(module)
         ]
 
-    def load(self, module_name: str, recursive: bool = False) -> "PythonAutoLoader":
+    def load(self, module_name: str, recursive: bool = False) -> "PythonModuleLoader":
         """
         Loads a module and all python modules in same directory as the module.
 
         :param module_name: name of the module. e.g. 'backend.users'
         :param recursive: if True, will load all modules from subdirectories.
-        :return: PythonAutoLoader.
+        :return: PythonModuleLoader.
         """
         self._loader.load(module_name, recursive)
         return self
@@ -77,7 +77,7 @@ def autoload(
     :return: set of modules objects.
     """
     return (
-        PythonAutoLoader()
+        PythonModuleLoader()
         .load(module_name, recursive=recursive)
         .find_objects(validators=validators)
     )

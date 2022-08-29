@@ -7,9 +7,9 @@ except IOError:
     long_description = ""
 
 setup(
-    name="python_autoloader",
+    name="python-module-loader",
     version="0.1.0",
-    description="Python package for auto-loading modules and objects.",
+    description="Python package for auto-loading modules and their objects.",
     license="MIT",
     author="Damian Ciftci",
     packages=find_packages(),
@@ -17,6 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     classifiers=[
         "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",

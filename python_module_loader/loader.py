@@ -1,8 +1,8 @@
 import os
 from typing import List
 
-from python_autoloader import helpers
-from python_autoloader.models import PythonModule
+from python_module_loader import helpers
+from python_module_loader.models import PythonModule
 
 logger = helpers.get_logger()
 

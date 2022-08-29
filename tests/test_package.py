@@ -1,21 +1,21 @@
 import inspect
 
-from python_autoloader import PythonAutoLoader
+from python_module_loader import PythonModuleLoader
 
 
-def test_python_autoloader():
-    loader = PythonAutoLoader().load("tests.example")
+def test_module_autoloader():
+    loader = PythonModuleLoader().load("tests.example")
     assert len(loader.modules) == 3
 
     classes = (
-        PythonAutoLoader()
+        PythonModuleLoader()
         .load("tests.example")
         .find_objects(validators=[inspect.isclass])
     )
     assert len(classes) == 2
 
     classes = (
-        PythonAutoLoader()
+        PythonModuleLoader()
         .load("tests.example", recursive=True)
         .find_objects(validators=[inspect.isclass])
     )

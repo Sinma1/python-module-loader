@@ -2,8 +2,8 @@ import logging
 
 
 def get_logger() -> logging.Logger:
-    """Get logger for PythonAutoloader."""
-    return logging.getLogger("PythonAutoloader")
+    """Get logger for PythonModuleLoader."""
+    return logging.getLogger("PythonModuleLoader")
 
 
 def is_python_file(file_name: str) -> bool:

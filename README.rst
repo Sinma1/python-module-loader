@@ -8,7 +8,7 @@ For example, if we want to get all command classes in the package `commands`, we
 ::
 
     commands = (
-        PythonAutoLoader()
+        PythonModuleLoader()
         .load("app.commands", recursive=True)
         .find_objects(validators=[lambda obj: issubclass(obj, Command)])
     )

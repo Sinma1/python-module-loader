@@ -1,6 +1,6 @@
 import pytest
 
-from python_autoloader import ModuleLoader
+from python_module_loader import ModuleLoader
 
 
 def test_module_loader():

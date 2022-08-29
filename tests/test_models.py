@@ -1,13 +1,13 @@
 import pytest
 
-from python_autoloader.models import PythonModule
+from python_module_loader.models import PythonModule
 
 
 def test_python_module_model():
-    python_module = PythonModule.from_module_name("python_autoloader.models")
-    assert python_module.name == "python_autoloader.models"
-    assert python_module.module.__file__.endswith("python_autoloader/models.py")
-    assert python_module.directory.endswith("/python_autoloader")
+    python_module = PythonModule.from_module_name("python_module_loader.models")
+    assert python_module.name == "python_module_loader.models"
+    assert python_module.module.__file__.endswith("python_module_loader/models.py")
+    assert python_module.directory.endswith("/python_module_loader")
     assert python_module.is_valid_file() is True
     assert python_module.is__init__() is False
 
@@ -41,15 +41,15 @@ def test_python_module_model():
         PythonModule.from_module_name("tests.example.not_existing")
 
     python_module = PythonModule.from_module_name(".")
-    assert python_module.name == "python_autoloader"
-    assert python_module.module.__file__.endswith("python_autoloader/__init__.py")
-    assert python_module.directory.endswith("/python_autoloader")
+    assert python_module.name == "python_module_loader"
+    assert python_module.module.__file__.endswith("python_module_loader/__init__.py")
+    assert python_module.directory.endswith("/python_module_loader")
     assert python_module.is_valid_file() is True
     assert python_module.is__init__() is True
 
     python_module = PythonModule.from_module_name(".loader")
-    assert python_module.name == "python_autoloader.loader"
-    assert python_module.module.__file__.endswith("python_autoloader/loader.py")
-    assert python_module.directory.endswith("/python_autoloader")
+    assert python_module.name == "python_module_loader.loader"
+    assert python_module.module.__file__.endswith("python_module_loader/loader.py")
+    assert python_module.directory.endswith("/python_module_loader")
     assert python_module.is_valid_file() is True
     assert python_module.is__init__() is False

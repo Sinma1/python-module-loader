@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from types import ModuleType
 from typing import Callable, Any
 
-from python_autoloader import helpers
+from python_module_loader import helpers
 
 
 @dataclass
