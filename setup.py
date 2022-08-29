@@ -10,6 +10,7 @@ setup(
     name="python-module-loader",
     version="0.1.1",
     description="Python package for auto-loading modules and their objects.",
+    url="https://github.com/Sinma1/python-module-loader",
     license="MIT",
     author="Damian Ciftci",
     packages=find_packages(),
