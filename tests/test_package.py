@@ -3,7 +3,7 @@ import inspect
 from python_module_loader import PythonModuleLoader
 
 
-def test_module_autoloader():
+def test_python_module_loader():
     loader = PythonModuleLoader().load("tests.example")
     assert len(loader.modules) == 3
 

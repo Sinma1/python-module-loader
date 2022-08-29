@@ -1,4 +1,4 @@
-Python Autoloader
+Python Module Loader
 ========
 
     This package provides a way to automatically load specified modules with all of its submodules.
