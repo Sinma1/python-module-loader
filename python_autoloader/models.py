@@ -33,5 +33,8 @@ class PythonModule:
         module = importlib.import_module(module_name)
         return cls(name=module_name, module=module)
 
+    def is_valid_file(self):
+        return bool(self.module.__file__)
+
 
 ValidateFunction = Callable[[Any], bool]

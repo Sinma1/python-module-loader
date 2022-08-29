@@ -6,6 +6,6 @@ def get_logger() -> logging.Logger:
     return logging.getLogger("PythonAutoloader")
 
 
-def is_python_file(file: str) -> bool:
-    """Check if file is a python file by checking its extension."""
-    return file.endswith(".py")
+def is_python_file(file_name: str) -> bool:
+    """Check if file_name is a python file by checking its extension."""
+    return file_name and file_name.endswith(".py")
