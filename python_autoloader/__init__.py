@@ -68,6 +68,14 @@ def autoload(
     validators: List[ValidateFunction] = None,
     recursive: bool = True,
 ) -> Any:
+    """
+    Loads a module and all python modules in same directory as the module.
+
+    :param module_name: name of the module. e.g. 'backend.users'
+    :param validators: list of validators functions that return True if module object is valid.
+    :param recursive: if True, will load all modules from subdirectories.
+    :return: set of modules objects.
+    """
     return (
         PythonAutoLoader()
         .load(module_name, recursive=recursive)
